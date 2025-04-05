@@ -1,0 +1,46 @@
+# Byte-compiled / optimized / package files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.cache
+
+# Virtual environment
+venv/
+myenv/
+uploads/
+# Environment variables
+.env
+*.env
+
+# Flask-specific
+instance/
+*.db
+*.sqlite3
+
+# Logs & Debug files
+*.log
+logs/
+debug.log
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+
+# Pytest / Coverage reports
+.coverage
+htmlcov/
+*.cover
+*.py,cover
+.cache
+nosetests.xml
+coverage.xml
+*.mo
+*.pot
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Docker
+*.dockerignore
