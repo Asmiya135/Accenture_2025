@@ -3,14 +3,12 @@ import os
 from dotenv import load_dotenv
 from flask_cors import CORS
 
-# LangChain Imports
 from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
 
-# Load API key
 load_dotenv()
 os.environ["GOOGLE_API_KEY"] = os.getenv("GEMINI_API_KEY")
 
@@ -40,11 +38,9 @@ def ask():
     # Add user input to history
     session["history"].append(f"User: {user_input}")
 
-    # 🔍 Retrieve relevant docs
     docs = vectorstore.similarity_search(user_input, k=3)
     context = "\n\n".join(doc.page_content for doc in docs)
 
-    # 🧠 Build prompt
     full_prompt = f"""
 You are a health literacy assistant. Your role is to explain symptoms, provide educational insight, and suggest general first-aid steps.
 Use the content from the provided medical textbook to help the user understand what might be happening.
@@ -62,7 +58,6 @@ Respond helpfully.
 """
 
 
-    # 🎯 Get Gemini response
     response = llm.invoke(full_prompt)
 
     # Save bot reply

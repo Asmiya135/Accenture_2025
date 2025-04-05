@@ -1,9 +1,10 @@
 from flask import Flask, jsonify
 from motion_detector import MotionDetector
 import threading
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app)
 # Create a single shared detector instance
 detector = MotionDetector()
 
