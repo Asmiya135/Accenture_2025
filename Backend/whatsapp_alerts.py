@@ -22,11 +22,3 @@ def send_whatsapp_alert(message):
     except Exception as e:
         print(f"Error sending WhatsApp message: {e}")
 
-
-# report = """
-# Medical Report Summary:
-# - Symptoms: Breathlessness, sweating
-# - Possible Cause: Heatstroke or anxiety
-# - Recommendation: Seek medical attention or call helpline
-# """
-# send_whatsapp_alert(report)
