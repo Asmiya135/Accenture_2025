@@ -2,12 +2,16 @@ from flask import Flask, request, jsonify, session
 import os
 from dotenv import load_dotenv
 from flask_cors import CORS
-
+import os
+import tempfile
+from ocr import extract_information_from_image, generate_doctor_advice
 from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain.vectorstores import FAISS
 from langchain.chains import RetrievalQA
+
+import shutil
 
 load_dotenv()
 os.environ["GOOGLE_API_KEY"] = os.getenv("GEMINI_API_KEY")
@@ -70,6 +74,40 @@ Respond helpfully.
 def reset():
     session.pop("history", None)
     return jsonify({"message": "Session reset successful."})
+
+
+
+@app.route("/upload", methods=["POST"])
+def upload():
+    if "file" not in request.files:
+        return jsonify({"error": "No file part"}), 400
+
+    file = request.files["file"]
+    if file.filename == "":
+        return jsonify({"error": "No selected file"}), 400
+
+    try:
+        # Save the uploaded file to a temporary path (closed immediately)
+        temp_path = os.path.join(tempfile.gettempdir(), file.filename)
+        file.save(temp_path)
+
+        # Process OCR and generate advice
+        extracted_data = extract_information_from_image(temp_path)
+        advice = generate_doctor_advice(extracted_data)
+
+        return jsonify({
+            "extracted_data": extracted_data,
+            "advice": advice
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        if os.path.exists(temp_path):
+            try:
+                os.remove(temp_path)
+            except Exception as cleanup_error:
+                print(f"Could not delete temp file: {cleanup_error}")
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
