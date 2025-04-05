@@ -5,6 +5,9 @@ __pycache__/
 *.pyd
 *.cache
 
+
+faiss_index/
+
 # Virtual environment
 venv/
 myenv/
