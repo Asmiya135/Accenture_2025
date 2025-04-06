@@ -81,7 +81,7 @@ export function DrSahyogiButton() {
       {/* Floating Button */}
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 h-16 w-16 rounded-full bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 shadow-lg z-50"
+        className="fixed bottom-6 right-6 h-16 w-16 rounded-full bg-gradient-to-r from-primary to-primary/10 hover:from-secondary/90 hover:to-secondary/70 shadow-lg z-50"
         size="icon"
       >
         <Stethoscope className="h-8 w-8" />

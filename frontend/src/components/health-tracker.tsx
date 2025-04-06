@@ -148,10 +148,10 @@ export function HealthTracker() {
                     </div>
                   </div>
                   <div className="mt-4 flex items-center">
-                    <div className="flex items-center justify-center rounded-full bg-secondary/10 p-3 text-secondary mr-4">
+                    <div className="flex items-center justify-center rounded-full bg-primary/10 p-3 text-primary mr-4">
                       <TrendingUp className="h-8 w-8" />
                     </div>
-                    <h3 className="text-4xl font-bold text-secondary">80</h3>
+                    <h3 className="text-4xl font-bold text-primary">80</h3>
                     <span className="ml-2 text-lg text-muted-foreground">mmHg</span>
                   </div>
                 </Card>
