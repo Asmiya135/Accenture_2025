@@ -37,14 +37,28 @@ class MotionDetector:
                 if motion_detected:
                     self.motion_status = "Motion Detected"
                     self.last_motion_time = now
-                elif now - self.last_motion_time > 5:
+                elif now - self.last_motion_time > 2:
                     self.motion_status = "No Motion Detected"
+
+            # Display motion status on the preview window
+            cv2.putText(frame1, self.motion_status, (10, 30),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+
+            # Show the frame with overlay
+            cv2.imshow("Motion Detection Preview", frame1)
 
             frame1 = frame2
             ret, frame2 = cap.read()
             if not ret:
                 break
 
+            # Exit preview on pressing 'q'
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                self.running = False
+                break
+
             print(f"[Motion] {self.motion_status}")
 
         cap.release()
+        cv2.destroyAllWindows()
+
