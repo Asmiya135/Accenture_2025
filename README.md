@@ -71,6 +71,32 @@ ElderCare AI offers a robust, modular, and intelligent solution to support elder
 
 ---
 
+## 📸 UI Screenshots
+
+### 🏠 Home Page  
+![Home Page](./screenshots/Homepage.png)
+
+---
+
+### 🚨 SOS Alert Interface  
+![SOS Alert](./screenshots/sos_alert.png)
+
+---
+
+### 📊 Health Dashboard  
+![Health Dashboard](./screenshots/health.png)
+
+---
+
+### 📄 Medical Report Analyzer  
+![Medical Report Analyzer](./screenshots/report.png)
+
+---
+
+### 💬 Multi-Agent Chatbot  
+![Chatbot](./screenshots/chatbot.png)
+
+
 ## 🎥 Demo Video
 
 Watch our full project demo on YouTube to see the system in action:
