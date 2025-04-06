@@ -74,7 +74,7 @@ export function Chatbot() {
         <p className="text-sm mt-1 text-white/80">Your personal health assistant</p>
       </div>
       <CardContent className="flex flex-1 flex-col p-0">
-        <ScrollArea className="flex-1 p-3">
+      <ScrollArea className="h-[400px] overflow-y-auto p-3">
           {messages.map((message) => (
             <div
               key={message.id}

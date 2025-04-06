@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Send, User, Bot, X, Stethoscope } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -25,7 +25,12 @@ export function DrSahyogiButton() {
     },
   ])
   const [input, setInput] = useState("")
-  
+  const bottomRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [messages])
+
   const handleSend = async () => {
     if (!input.trim()) return
   
@@ -103,7 +108,7 @@ export function DrSahyogiButton() {
             </div>
 
             {/* Messages */}
-            <ScrollArea className="flex-1 p-4">
+            <ScrollArea className="flex-1 p-4 h-full overflow-y-auto">
               {messages.map((message) => (
                 <div
                   key={message.id}
@@ -130,6 +135,7 @@ export function DrSahyogiButton() {
                   </div>
                 </div>
               ))}
+              <div ref={bottomRef} />
             </ScrollArea>
 
             {/* Input */}

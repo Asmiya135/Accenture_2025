@@ -31,13 +31,34 @@ export function Header({ pageName = "Dashboard" }: HeaderProps) {
           <h2 className="text-xl font-semibold">{pageName}</h2>
         </div>
         <div className="flex items-center gap-4">
-          <Button
-            variant="destructive"
-            size="default"
-            className="rounded-full font-bold transition-all hover:scale-105 shadow-md hover:shadow-lg animate-pulse-slow"
-          >
-            SOS
-          </Button>
+        <Button
+  variant="destructive"
+  size="default"
+  className="rounded-full font-bold transition-all hover:scale-105 shadow-md hover:shadow-lg animate-pulse-slow"
+  onClick={async () => {
+    try {
+      const res = await fetch("http://localhost:5001/sos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        alert("✅ SOS Alert Sent: " + data.message);
+      } else {
+        alert("⚠️ Failed to send SOS: " + data.message);
+      }
+    } catch (error) {
+      console.error("Error sending SOS:", error);
+      alert("❌ Error sending SOS alert.");
+    }
+  }}
+>
+  SOS
+</Button>
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon" className="rounded-full relative">
@@ -89,4 +110,3 @@ export function Header({ pageName = "Dashboard" }: HeaderProps) {
     </header>
   )
 }
-
