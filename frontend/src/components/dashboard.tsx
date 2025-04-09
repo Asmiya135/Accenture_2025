@@ -48,7 +48,7 @@ export function Dashboard() {
           <CardHeader className="pb-2">
             <CardTitle className="text-xl flex items-center gap-2">
               <Target className="h-5 w-5 text-secondary" />
-              Today&apos;s Goals
+              Today&rsquo;s Goals
             </CardTitle>
           </CardHeader>
           <CardContent>
