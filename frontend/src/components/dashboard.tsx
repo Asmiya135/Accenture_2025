@@ -32,7 +32,7 @@ export function Dashboard() {
           <CardHeader className="pb-2">
             <CardTitle className="text-xl flex items-center gap-2">
               <Activity className="h-5 w-5 text-primary" />
-              Blood Pressure
+               Blood Pressure
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -48,7 +48,8 @@ export function Dashboard() {
           <CardHeader className="pb-2">
             <CardTitle className="text-xl flex items-center gap-2">
               <Target className="h-5 w-5 text-secondary" />
-              Today&rsquo;s Goals
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              Today's Goals
             </CardTitle>
           </CardHeader>
           <CardContent>

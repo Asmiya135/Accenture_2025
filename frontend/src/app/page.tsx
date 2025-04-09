@@ -57,7 +57,8 @@ export default function Home() {
                 <CardHeader className="pb-2">
                   <CardTitle className="text-xl flex items-center gap-2">
                     <Target className="h-5 w-5 text-secondary" />
-                    Today&rsquo;s Goals
+                    {/* eslint-disable-next-line react/no-unescaped-entities */}
+                    Today's Goals
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
