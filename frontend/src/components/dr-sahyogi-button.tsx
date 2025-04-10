@@ -45,7 +45,7 @@ export function DrSahyogiButton() {
     setInput("")
   
     try {
-      const response = await fetch("http://localhost:5001/ask", {
+      const response = await fetch("https://elderlycare-3sok.onrender.com/ask", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
