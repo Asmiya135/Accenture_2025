@@ -306,7 +306,7 @@ export function MedicalDocuments() {
     formData.append("file", files[0]) // Only first file is sent
 
     try {
-      const response = await fetch("https://elderlycare-3sok.onrender.com/upload", {
+      const response = await fetch("https://two-elderlycare.onrender.com/upload", {
         method: "POST",
         body: formData,
       })
