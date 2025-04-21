@@ -1,5 +1,5 @@
 "use client"
-
+// Triggering new Vercel build
 import { AppSidebar } from "@/components/app-sidebar"
 import { Header } from "@/components/header"
 import { SidebarInset } from "@/components/ui/sidebar"
@@ -57,6 +57,7 @@ export default function Home() {
                 <CardHeader className="pb-2">
                   <CardTitle className="text-xl flex items-center gap-2">
                     <Target className="h-5 w-5 text-secondary" />
+                    {/* eslint-disable-next-line react/no-unescaped-entities */}
                     Today's Goals
                   </CardTitle>
                 </CardHeader>

@@ -37,7 +37,7 @@ export function Header({ pageName = "Dashboard" }: HeaderProps) {
   className="rounded-full font-bold transition-all hover:scale-105 shadow-md hover:shadow-lg animate-pulse-slow"
   onClick={async () => {
     try {
-      const res = await fetch("http://localhost:5001/sos", {
+      const res = await fetch("https://two-elderlycare.onrender.com/sos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
