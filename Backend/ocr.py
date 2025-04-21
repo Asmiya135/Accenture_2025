@@ -6,7 +6,7 @@ from PIL import Image
 from mistralai import Mistral
 import google.generativeai as genai
 from dotenv import load_dotenv
-
+from detect_pii import redact_selected_pii
 # Load environment variables
 load_dotenv()
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
@@ -68,9 +68,12 @@ def extract_information_from_image(image_path):
         if not extracted_text.strip():
             raise Exception("OCR result is empty")
 
-        print(f"[INFO] Extracted Text:\n{extracted_text[:300]}...")  # preview
+        # Use Presidio to redact PII
+        redacted_text = redact_selected_pii(extracted_text)
 
-        return {"report": extracted_text}
+        print(f"[INFO] Redacted Text Preview:\n{redacted_text[:300]}...")
+
+        return {"report": redacted_text}
 
     except Exception as e:
         raise Exception(f"Failed to extract with Mistral OCR: {e}")
