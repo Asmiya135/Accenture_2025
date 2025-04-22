@@ -67,8 +67,10 @@ export function Chatbot() {
       <div className="card-header-secondary">
         <CardTitle className="text-2xl font-bold">
           <div className="flex items-center gap-2">
+          
             <MessageSquare className="h-6 w-6" />
             Dr. Sahyogi
+            
           </div>
         </CardTitle>
         <p className="text-sm mt-1 text-white/80">Your personal health assistant</p>
@@ -87,6 +89,7 @@ export function Chatbot() {
                     : "bg-gradient-to-r from-secondary to-secondary/80 text-white"
                 }`}
               >
+                
                 {message.sender === "bot" && <Bot className="mt-1 h-5 w-5" />}
                 <div className="flex-1">
                   <p>{message.text}</p>
@@ -116,6 +119,7 @@ export function Chatbot() {
               }}
               className="text-base border-border focus-visible:ring-secondary bg-card"
             />
+            
             <Button
               onClick={handleSend}
               size="icon"
@@ -124,6 +128,7 @@ export function Chatbot() {
               <Send className="h-5 w-5" />
             </Button>
           </div>
+          
         </div>
       </CardContent>
     </Card>

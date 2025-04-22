@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Card } from "@/components/ui/card"
-
+import Hatbot from "@/components/hatbot";
 type Message = {
   id: number
   text: string
@@ -96,6 +96,7 @@ export function DrSahyogiButton() {
               <div className="flex items-center gap-3">
                 <Stethoscope className="h-6 w-6" />
                 <h3 className="text-xl font-bold">Dr. Sahyogi</h3>
+                <Hatbot/>
               </div>
               <Button
                 variant="ghost"
